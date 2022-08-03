@@ -114,7 +114,17 @@ class RPCClient extends EventEmitter {
     });
     return this._connectPromise;
   }
+  /**
+   * Returns the voice channel which is currently selected
+   * @returns {Promise}
+   */
+  getSelectedVoiceChannel() {
+    return this.request('SELECT_VOICE_CHANNEL');
+  }
 
+  /**
+   *
+   */
   /**
    * @typedef {RPCLoginOptions}
    * @param {string} clientId Client ID
@@ -168,6 +178,7 @@ class RPCClient extends EventEmitter {
    */
   _onRpcMessage(message) {
     if (message.cmd === RPCCommands.DISPATCH && message.evt === RPCEvents.READY) {
+      this.emit('[DISPATCH] READY', message);
       if (message.data.user) {
         this.user = message.data.user;
       }

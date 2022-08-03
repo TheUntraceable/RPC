@@ -1,9 +1,8 @@
 <div align="center">
   <br />
   <p>
-    <a href="https://discord.gg/bRCvFy9"><img src="https://discordapp.com/api/guilds/222078108977594368/embed.png" alt="Discord server" /></a>
-    <a href="https://www.npmjs.com/package/discord-rpc"><img src="https://img.shields.io/npm/v/discord-rpc.svg?maxAge=3600" alt="NPM version" /></a>
-    <a href="https://www.npmjs.com/package/discord-rpc"><img src="https://img.shields.io/npm/dt/discord-rpc.svg?maxAge=3600" alt="NPM downloads" /></a>
+    <a href="https://www.npmjs.com/package/@theuntraceable/discord-rpc"><img src="https://img.shields.io/npm/v/discord-rpc.svg?maxAge=3600" alt="NPM version" /></a>
+    <a href="https://www.npmjs.com/package/@theuntraceable/discord-rpc"><img src="https://img.shields.io/npm/dt/discord-rpc.svg?maxAge=3600" alt="NPM downloads" /></a>
     <a href="https://david-dm.org/discordjs/RPC"><img src="https://img.shields.io/david/discordjs/RPC.svg?maxAge=3600" alt="Dependencies" /></a>
   </p>
   <p>
@@ -15,12 +14,12 @@
 
 ### [Documentation](https://discord.js.org/#/docs/rpc/)
 
-### [Rich Presence Example](https://github.com/discordjs/RPC/blob/master/example)
+### ~~[Rich Presence Example](https://github.com/TheUntraceable/RPC/blob/master/example)~~ Will fix soon.
 
 ### __Browser__ Example
 
 ```javascript
-const clientId = '287406016902594560';
+const clientId = '743122320838623338';
 const scopes = ['rpc', 'rpc.api', 'messages.read'];
 
 const client = new RPC.Client({ transport: 'websocket' });
