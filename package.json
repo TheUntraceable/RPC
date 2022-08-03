@@ -1,7 +1,7 @@
 {
-  "name": "discord-rpc",
+  "name": "@theuntraceable/discord-rpc",
   "version": "4.0.1",
-  "description": "A simple RPC client for Discord",
+  "description": "A maintained fork of DiscordJS/RPC",
   "keywords": [
     "discord",
     "rpc",
@@ -13,20 +13,18 @@
   "unpkg": "browser.js",
   "author": "snek <me@gus.host>",
   "license": "MIT",
-  "homepage": "https://github.com/discordjs/RPC#readme",
+  "homepage": "https://github.com/TheUntraceable/RPC#readme",
   "bugs": {
-    "url": "https://github.com/discordjs/RPC/issues"
+    "url": "https://github.com/TheUntraceable/RPC/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/discordjs/RPC.git"
+    "url": "git+https://github.com/TheUntraceable/RPC.git"
   },
   "scripts": {
-    "lint": "eslint src test --ext=js",
-    "docs": "mkdir -p docs-out && docgen --source src --output docs-out/master.json --jsdoc jsdoc.json --custom docgen.json",
-    "example": "electron example/main.js",
-    "build:browser": "webpack-cli",
-    "prepublishOnly": "npm run lint && npm run build:browser"
+    "lint": "eslint src test --ext=js --fix",
+    "docs": "mkdir -p docs && docgen --source src --output docs/master.json --jsdoc jsdoc.json --custom docgen.json",
+    "prepublishOnly": "npm run lint"
   },
   "dependencies": {
     "node-fetch": "^2.6.1",
@@ -42,9 +40,7 @@
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "14.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "jsdoc-strip-async-await": "^0.1.0",
-    "webpack": "^4.40.0",
-    "webpack-cli": "^3.3.8"
+    "jsdoc-strip-async-await": "^0.1.0"
   },
   "browser": {
     "net": false,
@@ -54,5 +50,8 @@
     "electron": false,
     "register-scheme": false,
     "./src/transports/IPC.js": false
+  },
+  "directories": {
+    "test": "test"
   }
 }
