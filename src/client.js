@@ -178,7 +178,7 @@ class RPCClient extends EventEmitter {
    */
   _onRpcMessage(message) {
     if (message.cmd === RPCCommands.DISPATCH && message.evt === RPCEvents.READY) {
-      this.emit('[DISPATCH] READY', message);
+      this.emit('READY', message);
       if (message.data.user) {
         this.user = message.data.user;
       }
