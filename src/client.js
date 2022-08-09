@@ -115,7 +115,7 @@ class RPCClient extends EventEmitter {
     return this._connectPromise;
   }
   /**
-   * Returns the voice channel which is currently selected
+   * Returns the voice channel which is currently selected, if any
    * @returns {Promise}
    */
   getSelectedVoiceChannel() {
@@ -244,11 +244,11 @@ class RPCClient extends EventEmitter {
    */
   authenticate(accessToken) {
     return this.request('AUTHENTICATE', { access_token: accessToken })
-      .then(({ application, user }) => {
-        this.accessToken = accessToken;
-        this.application = application;
+      .then((message) => {
+        this.accessToken = message.accessToken;
+        this.application = message.application;
         this.user = user;
-        this.emit('ready');
+        this.emit('ready', message);
         return this;
       });
   }

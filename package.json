@@ -1,6 +1,6 @@
 {
   "name": "@theuntraceable/discord-rpc",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "A maintained fork of DiscordJS/RPC",
   "keywords": [
     "discord",
