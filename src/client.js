@@ -247,7 +247,7 @@ class RPCClient extends EventEmitter {
       .then((message) => {
         this.accessToken = message.accessToken;
         this.application = message.application;
-        this.user = user;
+        this.user = message.user;
         this.emit('ready', message);
         return this;
       });
