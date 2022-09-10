@@ -178,11 +178,14 @@ class RPCClient extends EventEmitter {
    */
   _onRpcMessage(message) {
     if (message.cmd === RPCCommands.DISPATCH && message.evt === RPCEvents.READY) {
-      this.emit('READY', message);
+      this.emit('connected');
       if (message.data.user) {
         this.user = message.data.user;
       }
-      this.emit('connected');
+      if(message.data.accessToken) {
+        this.accessToken = message.data.accessToken;
+      } 
+      this.emit('READY', message);
     } else if (this._expecting.has(message.nonce)) {
       const { resolve, reject } = this._expecting.get(message.nonce);
       if (message.evt === 'ERROR') {
