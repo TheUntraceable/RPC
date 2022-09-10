@@ -182,9 +182,9 @@ class RPCClient extends EventEmitter {
       if (message.data.user) {
         this.user = message.data.user;
       }
-      if(message.data.accessToken) {
-        this.accessToken = message.data.accessToken;
-      } 
+      if (message.data.access_token) {
+        this.accessToken = message.data.access_token;
+      }
       this.emit('READY', message);
     } else if (this._expecting.has(message.nonce)) {
       const { resolve, reject } = this._expecting.get(message.nonce);
@@ -248,7 +248,7 @@ class RPCClient extends EventEmitter {
   authenticate(accessToken) {
     return this.request('AUTHENTICATE', { access_token: accessToken })
       .then((message) => {
-        this.accessToken = message.accessToken;
+        this.accessToken = message.access_token;
         this.application = message.application;
         this.user = message.user;
         this.emit('ready', message);
