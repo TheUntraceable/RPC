@@ -182,9 +182,6 @@ class RPCClient extends EventEmitter {
       if (message.data.user) {
         this.user = message.data.user;
       }
-      if (message.data.access_token) {
-        this.accessToken = message.data.access_token;
-      }
       this.emit('READY', message);
     } else if (this._expecting.has(message.nonce)) {
       const { resolve, reject } = this._expecting.get(message.nonce);
@@ -235,7 +232,7 @@ class RPCClient extends EventEmitter {
         redirect_uri: redirectUri,
       }),
     });
-
+    this.accessToken = response.access_token
     return response.access_token;
   }
 
@@ -248,7 +245,6 @@ class RPCClient extends EventEmitter {
   authenticate(accessToken) {
     return this.request('AUTHENTICATE', { access_token: accessToken })
       .then((message) => {
-        this.accessToken = message.access_token;
         this.application = message.application;
         this.user = message.user;
         this.emit('ready', message);
